@@ -5,7 +5,7 @@ A web-based tribute to some of the most popular mobile games from the recent pas
 
 A mash up of Flappy Bird, Angry Birds and Candy Crush. If you like this mashup go and download [Angry Birds](https://www.angrybirds.com/) and [Candy Crush](http://www.candycrushsaga.com/) (you can't get Flappy Bird anymore!).
 
-[Demo](https://robertmaldon.github.io/angry-flappy-bird-crush/)
+[Demo](https://robertmaldon.github.io/demo/angry-flappy-bird-crush/)
 
 It is responsive and has been tested on Andriod 4.0 (latest Chrome), iOS 6 (iPhone and iPad) and desktop (latest Chrome and Firefox).
 
