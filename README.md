@@ -22,6 +22,34 @@ If you want to develop this application further there are a couple of scripts in
 * "audioSprite.sh" - combines all audio files in assets/sfx/*.wav into a single audio sprite as assets/sfxSprite.wav. Assumes you have the "ffmpeg" command line utility already installed.
 * "server.sh" - starts a modified version of the python SimpleHTTPServer that disables browser caching. If you are running Mac OSX or Linux then you should have python already installed.
 
+## crosswalk
+
+The "native" way to run an HTML application on Android is to use a [WebView](http://developer.android.com/reference/android/webkit/WebView.html), which is basically a web rendering engine packaged as part of Android.
+
+An interesting challenge is that WebView has different capabilities - and therefore different behaviour - depending on the version of Android. e.g. WebView in one version of Android may support the HTML4 LocalStorage API while WebView in a different version of Android may not support it.
+
+One solution to this challenge is to use [crosswalk](https://crosswalk-project.org/), an embeddable web rendering engine based on Chromium. By embedding crosswalk into your Android application you will have consistent behaviour across most versions of Android (some APIs may not work due to hardware limitations), but at the cost of a much larger application size. e.g. Angry Flappy Bird Crush + crosswalk has a storage size of 70 MB versus Flappy Bird which has a 2.5 MB storage size.
+
+If storage size is not a concern then read on.
+
+To package Angry Flappy Bird Crush as an Android application using crosswalk do the following:
+
+1. Install and configure python, java, ant, the android sdk and the crosswalk "Android (ARM + x86)" application template - [Linux/Mac setup](https://crosswalk-project.org/#documentation/getting_started/linux_host_setup) or [Windows setup](https://crosswalk-project.org/#documentation/getting_started/windows_host_setup)
+2. Make sure you can [deploy to an Android device or emulator](https://crosswalk-project.org/#documentation/getting_started/android_target_setup)
+3. [Build and run the application](https://crosswalk-project.org/#documentation/getting_started/run_on_android). i.e.
+
+a. Go to the unpacked Crosswalk Android directory
+
+    cd ~/tools/crosswalk-9.38.208.1
+
+b. Package the application
+
+    python make_apk.py --package org.angryflappybirdcrush --mainfest ~/projects/angry-flappy-bird-crush/manifest.json --verbose
+
+c. Install the application on the target device:
+
+    adb install -r Angryflappybirdcrush_1.0.0_arm.apk
+
 ## Credits
 
 As usual I stand on the shoulders of giants. This game would not have been possible without:
