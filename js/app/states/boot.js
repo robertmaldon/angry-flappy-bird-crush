@@ -32,7 +32,7 @@ define(function () {
                 this.game.scale.pageAlignHorizontally = true;
                 this.game.scale.pageAlignVertically = true;
                 this.game.scale.forceOrientation(false, true); // run in 'portrait' orientation
-                this.game.scale.hasResized.add(this.gameResized, this);
+                this.game.scale.setResizeCallback(this.gameResized, this);
                 this.game.scale.enterIncorrectOrientation.add(this.enterIncorrectOrientation, this);
                 this.game.scale.leaveIncorrectOrientation.add(this.leaveIncorrectOrientation, this);
                 this.game.scale.setScreenSize(true);
