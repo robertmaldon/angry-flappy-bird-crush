@@ -44,7 +44,7 @@ a. Go to the unpacked Crosswalk Android directory
 
 b. Package the application
 
-    python make_apk.py --package org.angryflappybirdcrush --mainfest ~/projects/angry-flappy-bird-crush/manifest.json --verbose
+    python make_apk.py --package org.angryflappybirdcrush --manifest ~/projects/angry-flappy-bird-crush/manifest.json --verbose
 
 c. Install the application on the target device:
 
