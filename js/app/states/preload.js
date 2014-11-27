@@ -56,7 +56,18 @@ define(function () {
         },
         update: function() {
             if (!!this.ready) {
-              this.game.state.start('menu');
+                if (this.game.device.webAudio) {
+                    if (this.cache.isSoundDecoded('musicFlyingWithoutWings') &&
+                        this.cache.isSoundDecoded('musicGoodTime') &&
+                        this.cache.isSoundDecoded('musicIntro') &&
+                        this.cache.isSoundDecoded('musicKeepOnMoving') &&
+                        this.cache.isSoundDecoded('musicWalkingOnSunshine') &&
+                        this.cache.isSoundDecoded('musicWishICouldFly')) {
+                        this.game.state.start('menu');
+                    }
+                } else {
+                    this.game.state.start('menu');
+                }
             }
         },
         onLoadComplete: function() {
